@@ -33,7 +33,7 @@ Or add the package to your development dependencies in `composer.json` and run
 ```
 
 ## Usage
-To use this package in your tests, you must first call the `\Sven\LaravelCollectionTestingHelpers\Macros::enable()` 
+To use this package in your tests, you must first call the `\Sven\LaravelCollectionTestingHelpers\Helpers::enable()` 
 method where you want to use the assertions. You may then use the methods directly on your collections:
 
 ```php
