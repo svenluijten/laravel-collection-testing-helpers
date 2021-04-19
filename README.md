@@ -70,6 +70,7 @@ class ExampleTest extends TestCase
             ->assertContains('name', 'apple')
             ->assertNotContains('name', 'grape');
     }
+}
 ```
 
 ## Credits
