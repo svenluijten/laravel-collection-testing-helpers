@@ -39,14 +39,14 @@ method where you want to use the assertions. You may then use the methods direct
 ```php
 <?php
 
-use Sven\LaravelCollectionTestingHelpers\Macros;
+use Sven\LaravelCollectionTestingHelpers\Helpers;
 use Illuminate\Foundation\Testing\TestCase;
 
 class ExampleTest extends TestCase
 {
     public function test_collections()
     {
-        Macros::enable();
+        Helpers::enable();
         
         collect(['apple', 'pear', 'banana'])
             ->assertContains('apple')
@@ -55,7 +55,7 @@ class ExampleTest extends TestCase
 
     public function test_callable_filtering()
     {
-        Macros::enable();
+        Helpers::enable();
         
         collect(['apple', 'pear', 'banana'])
             ->assertContains(fn ($fruit) => $fruit === 'pear')
@@ -64,7 +64,7 @@ class ExampleTest extends TestCase
 
     public function test_keyed_collections()
     {
-        Macros::enable();
+        Helpers::enable();
         
         collect([['name' => 'apple'], ['name' => 'pear'], ['name' => 'banana']])
             ->assertContains('name', 'apple')

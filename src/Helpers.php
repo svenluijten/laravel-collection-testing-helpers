@@ -4,7 +4,7 @@ namespace Sven\LaravelCollectionTestingHelpers;
 
 use Illuminate\Support\Collection;
 
-class Macros
+class Helpers
 {
     public static function enable(): void
     {

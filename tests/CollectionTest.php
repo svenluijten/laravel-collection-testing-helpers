@@ -4,13 +4,13 @@ namespace Sven\LaravelCollectionTestingHelpers\Tests;
 
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\TestCase;
-use Sven\LaravelCollectionTestingHelpers\Macros;
+use Sven\LaravelCollectionTestingHelpers\Helpers;
 
 class CollectionTest extends TestCase
 {
     protected function setUp(): void
     {
-        Macros::enable();
+        Helpers::enable();
 
         parent::setUp();
     }
