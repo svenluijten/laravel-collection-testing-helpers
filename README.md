@@ -72,6 +72,10 @@ class ExampleTest extends TestCase
     }
 ```
 
+## Credits
+Big thanks to [@eduarguz](https://github.com/eduarguz) for [his original work on this](https://github.com/svenluijten/laravel-testing-utils/pull/4) 
+in the now-abandoned [`sven/laravel-testing-utils`](https://github.com/svenluijten/laravel-testing-utils) package.
+
 ## Contributing
 All contributions (pull requests, issues and feature requests) are
 welcome. Make sure to read through the [CONTRIBUTING.md](CONTRIBUTING.md) first,
