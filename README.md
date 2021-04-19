@@ -1,4 +1,4 @@
-![:package](:hero)
+![Laravel Collection Testing Helpers](https://user-images.githubusercontent.com/11269635/115297729-d5be1700-a15c-11eb-9207-8c82d12f1cf7.jpg)
 
 # Laravel Collection Testing Helpers
 
