@@ -1,22 +1,15 @@
 ![:package](:hero)
 
-# :package
+# Laravel Collection Testing Helpers
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-build]][link-build]
 [![StyleCI][ico-styleci]][link-styleci]
-[![PhpStan][ico-phpstan]][link-phpstan]
 
-Short description of the package. What does it do and why should people download
-it? Brag a bit but don't exaggerate. Talk about what's to come and tease small
-pieces of functionality.
-
-> :namespace
-> :package
-> :styleci
-> :hero
+This package adds several convenience methods to your Laravel collections to make
+assertions against them more fluent and readable.
 
 ## Installation
 You'll have to follow a couple of simple steps to install this package.
@@ -25,42 +18,58 @@ You'll have to follow a couple of simple steps to install this package.
 Via [composer](http://getcomposer.org):
 
 ```bash
-$ composer require sven/:package
+$ composer require sven/laravel-collection-testing-helpers --dev
 ```
 
-Or add the package to your dependencies in `composer.json` and run
+Or add the package to your development dependencies in `composer.json` and run
 `composer update` on the command line to download the package:
 
 ```json
 {
-    "require": {
-        "sven/:package": "*"
+    "require-dev": {
+        "sven/laravel-collection-testing-helpers": "^1.0"
     }
 }
 ```
 
-
-### Registering the service provider
-> Is this a Laravel package?
-
-Next, add the `ServiceProvider` to your `providers` array in `config/app.php`:
-
-```php
-'providers' => [
-    ...
-    Sven\:namespace\ServiceProvider::class,
-];
-```
-
-If you would like to load this package in certain environments only, take a look
-at [sven/env-providers](https://github.com/svenluijten/env-providers).
-
 ## Usage
-Some examples of the code. How should people use it, what options does this package
-provide? Should people be wary of some functionality?
+To use this package in your tests, you must first call the `\Sven\LaravelCollectionTestingHelpers\Macros::enable()` 
+method where you want to use the assertions. You may then use the methods directly on your collections:
 
 ```php
-Maybe some code?
+<?php
+
+use Sven\LaravelCollectionTestingHelpers\Macros;
+use Illuminate\Foundation\Testing\TestCase;
+
+class ExampleTest extends TestCase
+{
+    public function test_collections()
+    {
+        Macros::enable();
+        
+        collect(['apple', 'pear', 'banana'])
+            ->assertContains('apple')
+            ->assertNotContains('orange');
+    }
+
+    public function test_callable_filtering()
+    {
+        Macros::enable();
+        
+        collect(['apple', 'pear', 'banana'])
+            ->assertContains(fn ($fruit) => $fruit === 'pear')
+            ->assertNotContains(fn ($fruit) => $fruit === 'kiwi');
+    }
+
+    public function test_keyed_collections()
+    {
+        Macros::enable();
+        
+        collect([['name' => 'apple'], ['name' => 'pear'], ['name' => 'banana']])
+            ->assertContains('name', 'apple')
+            ->assertNotContains('name', 'grape');
+    }
 ```
 
 ## Contributing
@@ -69,18 +78,16 @@ welcome. Make sure to read through the [CONTRIBUTING.md](CONTRIBUTING.md) first,
 though. See the [contributors page](../../graphs/contributors) for all contributors.
 
 ## License
-`sven/:package` is licensed under the MIT License (MIT). Please see the
-[license file](LICENSE.md) for more information.
+`sven/laravel-collection-testing-helpers` is licensed under the MIT License (MIT). 
+Please see the [license file](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/sven/:package.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/sven/laravel-collection-testing-helpers.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-green.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/sven/:package.svg?style=flat-square
-[ico-build]: https://img.shields.io/travis/svenluijten/:package?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/sven/laravel-collection-testing-helpers.svg?style=flat-square
+[ico-build]: https://img.shields.io/github/workflow/status/svenluijten/laravel-collection-testing-helpers/Tests?style=flat-square
 [ico-styleci]: https://styleci.io/repos/:styleci/shield
-[ico-phpstan]: https://img.shields.io/badge/phpstan-enabled-blue.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/sven/:package
-[link-downloads]: https://packagist.org/packages/sven/:package
-[link-build]: https://travis-ci.org/svenluijten/:package
+[link-packagist]: https://packagist.org/packages/sven/laravel-collection-testing-helpers
+[link-downloads]: https://packagist.org/packages/sven/laravel-collection-testing-helpers
+[link-build]: https://github.com/svenluijten/laravel-collection-testing-helpers/actions/workflows/run-tests.yml
 [link-styleci]: https://styleci.io/repos/:styleci
-[link-phpstan]: https://github.com/phpstan/phpstan

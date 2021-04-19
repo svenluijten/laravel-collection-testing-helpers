@@ -1,7 +1,7 @@
 {
-    "name": "sven/:package",
-    "description": "",
-    "keywords": [],
+    "name": "sven/laravel-collection-testing-macros",
+    "description": "Testing helpers directly on your Laravel collections",
+    "keywords": ["laravel", "collections", "testing", "phpunit", "helpers"],
     "license": "MIT",
     "authors": [
         {
@@ -11,41 +11,21 @@
         }
     ],
     "require": {
-        "php": "^7.1"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^8.0",
-        "phpstan/phpstan": "^0.11"
+        "php": "^8.0",
+        "phpunit/phpunit": "^9.0",
+        "illuminate/collections": "^8.0"
     },
     "autoload": {
         "psr-4": {
-            "Sven\\:namespace\\": "src/"
+            "Sven\\LaravelCollectionTestingHelpers\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sven\\:namespace\\Tests\\": "tests/"
+            "Sven\\LaravelCollectionTestingHelpers\\Tests\\": "tests/"
         }
     },
     "config": {
         "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Sven\\:namespace\\ServiceProvider"
-            ],
-            "aliases": {
-                ":namespace": "Sven\\:namespace\\Facades\\:namespace"
-            }
-        }
-    },
-    "scripts": {
-        "check": [
-            "@test",
-            "@analyse"
-        ],
-        "test": "phpunit",
-        "analyse": "phpstan analyse src/ tests/"
     }
 }

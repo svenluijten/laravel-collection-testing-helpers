@@ -11,7 +11,7 @@
          verbose="true"
 >
     <testsuites>
-        <testsuite name=":package Test Suite">
+        <testsuite name="Laravel CollectionTesting Macros Test Suite">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
