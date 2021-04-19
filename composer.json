@@ -1,5 +1,5 @@
 {
-    "name": "sven/laravel-collection-testing-macros",
+    "name": "sven/laravel-collection-testing-helpers",
     "description": "Convenience methods on your Laravel collections for testing",
     "keywords": ["laravel", "collections", "testing", "phpunit", "helpers"],
     "license": "MIT",
