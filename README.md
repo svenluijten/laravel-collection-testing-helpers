@@ -89,9 +89,9 @@ Please see the [license file](LICENSE.md) for more information.
 [ico-license]: https://img.shields.io/badge/license-MIT-green.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/sven/laravel-collection-testing-helpers.svg?style=flat-square
 [ico-build]: https://img.shields.io/github/workflow/status/svenluijten/laravel-collection-testing-helpers/Tests?style=flat-square
-[ico-styleci]: https://styleci.io/repos/:styleci/shield
+[ico-styleci]: https://styleci.io/repos/359575155/shield
 
 [link-packagist]: https://packagist.org/packages/sven/laravel-collection-testing-helpers
 [link-downloads]: https://packagist.org/packages/sven/laravel-collection-testing-helpers
 [link-build]: https://github.com/svenluijten/laravel-collection-testing-helpers/actions/workflows/run-tests.yml
-[link-styleci]: https://styleci.io/repos/:styleci
+[link-styleci]: https://styleci.io/repos/359575155
